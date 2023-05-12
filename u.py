@@ -116,13 +116,13 @@ if(sb=='Less than 3'):
     csv_button = st.button('Download as CSV')
     if csv_button:
         csv = dfless3.to_csv(index=False)
-        st.download_button(label='Download CSV', data=csv, file_name='data.csv', mime='text/csv')
+        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
 
     # Add a button to download the DataFrame as Excel
     excel_button = st.button('Download as Excel')
     if excel_button:
         excel = dfless3.to_excel(index=False)
-        st.download_button(label='Download Excel', data=excel, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        st.download_button(label='click here to download', data=excel, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 
 
