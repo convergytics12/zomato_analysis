@@ -112,14 +112,13 @@ if(sb=='Less than 3'):
     with map_container:
         folium_static(m, width=500, height=300)
         
+    csv = dfless3.to_csv('data.csv',index=False)
+    xl = dfless3.to_excel('data.xlsx',index=False)
+        
         
     st.subheader('Download the above data')
-    rad=st.radio('**Export Forecasted Production**',['.csv','.xlsx'])
-    if(st.button('Submit')):
-        if rad=='.csv':
-            dfless3.to_csv(str(sb)+'_restaurant_data.csv',index=False)
-        if rad=='.xlsx':
-            dfless3.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
+    st.download_button('Download csv',csv,'data.csv')
+    st.download_button('Download excel,xl,'data.xlsx')
     
 
 
