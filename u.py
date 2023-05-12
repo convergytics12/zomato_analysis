@@ -112,14 +112,17 @@ if(sb=='Less than 3'):
     with map_container:
         folium_static(m, width=500, height=300)
         
-    csv = dfless3.to_csv('data.csv',index=False)
-    xl = dfless3.to_excel('data.xlsx',index=False)
-        
-        
-    st.subheader('Download the above data')
-    st.download_button('Download csv',csv,'data.csv')
-    st.download_button('Download excel,xl,'data.xlsx')
-    
+    # Add a button to download the DataFrame as CSV
+    csv_button = st.button('Download as CSV')
+    if csv_button:
+        csv = dfless3.to_csv(index=False)
+        st.download_button(label='Download CSV', data=csv, file_name='data.csv', mime='text/csv')
+
+    # Add a button to download the DataFrame as Excel
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        excel = dfless3.to_excel(index=False)
+        st.download_button(label='Download Excel', data=excel, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 
 
