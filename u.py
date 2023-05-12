@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_folium import folium_static
 import folium
 import pandas as pd
+import io
 
 # Create pandas dataframes with location coordinates and categories
 
@@ -121,9 +122,13 @@ if(sb=='Less than 3'):
     # Add a button to download the DataFrame as Excel
     excel_button = st.button('Download as Excel')
     if excel_button:
-        excel = dfless3.to_excel(index=False)
-        st.download_button(label='click here to download', data=excel, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
+        excel = df.to_excel(index=False)
+        excel_file = io.BytesIO()
+        excel_writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
+        df.to_excel(excel_writer, index=False, sheet_name='Sheet1')
+        excel_writer.save()
+        excel_file.seek(0)
+        st.download_button(label='click here to download', data=excel_file, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 
 
