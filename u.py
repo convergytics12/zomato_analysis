@@ -51,7 +51,7 @@ if(sb=='Select The Rating'):
 if(sb=='4-5 rating'):
     df_4_5=df[df['Rating_Cat']==sb][['Restaurant Name','lat', 'lon','fssai','Dining_Rating','Address']]
     st.dataframe(df_4_5[['Restaurant Name','fssai']])
-    st.write('Number of Restaurants:',len(df_4_5))
+    st.write('**Number of Restaurants:**',len(df_4_5))
     df45=df_4_5[['Restaurant Name','fssai','Dining_Rating','Address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
 
@@ -75,7 +75,7 @@ if(sb=='4-5 rating'):
 if(sb=='3-4 rating'):
     df_3_4=df[df['Rating_Cat']==sb][['Restaurant Name','lat', 'lon','fssai','Dining_Rating','Address']]
     st.dataframe(df_3_4['Restaurant Name'])
-    st.write('Number of Restaurants:',len(df_3_4))
+    st.write('**Number of Restaurants:**',len(df_3_4))
     df34=df_3_4[['Restaurant Name','fssai','Dining_Rating','Address']]
     
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -99,7 +99,7 @@ if(sb=='3-4 rating'):
 if(sb=='Less than 3'):
     df_less3=df[df['Rating_Cat']==sb][['Restaurant Name','lat', 'lon','fssai','Dining_Rating','Address']]
     st.dataframe(df_less3['Restaurant Name'])
-    st.write('Number of Restaurants:',len(df_less3))
+    st.write('**Number of Restaurants:**',len(df_less3))
     dfless3=df_less3[['Restaurant Name','fssai','Dining_Rating','Address']]
     #dfless3=dfless3.reset_index(drop=True)
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
