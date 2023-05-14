@@ -41,7 +41,7 @@ for i in range(len(la)):
     elif(la[i]==' NEW '):
         las[i]='Newly added restaurants'
     elif(la[i]>=4):
-         las[i]='4-5 rating'
+        las[i]='4-5 rating'
     elif(la[i]<3):
         las[i]='Less than 3'
     else:
