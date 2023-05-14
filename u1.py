@@ -129,7 +129,7 @@ if(sb=='4-5 rating'):
             df45.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
             
 if(sb=='3-4 rating'):
-    df_3_4=df[df['rating_Cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
+    df_3_4=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
     st.dataframe(df_3_4[['name','fssai']])
     st.write('Number of Restaurants:',len(df_3_4))
     df34=df_3_4[['name','fssai','rating','address']]
@@ -153,7 +153,7 @@ if(sb=='3-4 rating'):
             df34.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
     
 if(sb=='Less than 3'):
-    df_less3=df[df['rating_Cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
+    df_less3=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
     st.dataframe(df_less3[['name','fssai']])
     st.write('Number of Restaurants:',len(df_less3))
     dfless3=df_less3[['name','fssai','rating','address']]
