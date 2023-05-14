@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_folium import folium_static
 import folium
 import pandas as pd
+import xlsxwriter
 
 # Create pandas dataframes with location coordinates and categories
 dff=pd.read_excel('final_zom_swiggy.xlsx')
