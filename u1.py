@@ -170,30 +170,11 @@ if(sb=='Less than 3'):
         
         
     st.subheader('Download the above data')
-    import io
-    import click
+    csv_button = st.button('Download as CSV')
+    if csv_button:
+        csv = dfless3.to_csv(index=False)
+        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
 
-    rad = st.radio('**Export Forecasted Production**', ['.csv', '.xlsx'])
-    if st.button('Submit'):
-        # Create a buffer to hold the file contents
-        output_buffer = io.BytesIO()
-
-        # Write the data to the buffer
-        if rad == '.csv':
-            dfless3.to_csv(output_buffer, index=False)
-        elif rad == '.xlsx':
-            dfless3.to_excel(output_buffer, index=False)
-
-        # Download the file using the buffer
-        output_buffer.seek(0)
-        b64 = base64.b64encode(output_buffer.read()).decode()
-        href = f'<a href="data:application/octet-stream;base64,{b64}" download="{sb}_restaurant_data{rad}">Download file</a>'
-        st.markdown(href, unsafe_allow_html=True)
-
-        # Simulate a click on the download link using the click module
-        download_link = st.markdown(href, unsafe_allow_html=True)
-        click.echo(download_link)
-        click.launch(download_link)
 
 
 
