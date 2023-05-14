@@ -56,8 +56,10 @@ sb = st.radio('**Select the rating**',('Select the Rating','Newly added restaura
 if(sb=='Select The Rating'):
     pass
 if(sb=='Newly added restaurants'):
-    df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
-    df['fssai']=df['fssai'].astype('int64')
+    df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
+    df_4_5['fssai']=df_4_5['fssai'].astype('str')
+    for i in range(len(df_4_5)):
+        df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
     st.dataframe(df_4_5[['name','fssai']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
@@ -88,8 +90,10 @@ if(sb=='Newly added restaurants'):
 
             
 if(sb=='No Ratings'):
-    df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
-    df['fssai']=df['fssai'].astype('int64')
+    df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
+    df_4_5['fssai']=df_4_5['fssai'].astype('str')
+    for i in range(len(df_4_5)):
+        df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
     st.dataframe(df_4_5[['name','fssai']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
@@ -122,8 +126,10 @@ if(sb=='No Ratings'):
     
     
 if(sb=='4-5 rating'):
-    df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
-    st.dataframe(df_4_5[['name','fssai']])
+    df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
+    df_4_5['fssai']=df_4_5['fssai'].astype('str')
+    for i in range(len(df_4_5)):
+        df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -161,7 +167,10 @@ if(sb=='4-5 rating'):
 
             
 if(sb=='3-4 rating'):
-    df_3_4=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
+    df_3_4=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
+    df_3_4['fssai']=df_3_4['fssai'].astype('str')
+    for i in range(len(df_3_4)):
+        df_3_4['fssai'][i]=df_3_4['fssai'][i].rstrip('.0')
     st.dataframe(df_3_4[['name','fssai']])
     st.write('Number of Restaurants:',len(df_3_4))
     df34=df_3_4[['name','fssai','rating','address']]
@@ -200,7 +209,10 @@ if(sb=='3-4 rating'):
 
     
 if(sb=='Less than 3'):
-    df_less3=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
+    df_less3=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
+    df_less3['fssai']=df_less3['fssai'].astype('str')
+    for i in range(len(df_less3)):
+        df_less3['fssai'][i]=df_less3['fssai'][i].rstrip('.0')
     st.dataframe(df_less3[['name','fssai']])
     st.write('Number of Restaurants:',len(df_less3))
     dfless3=df_less3[['name','fssai','rating','address']]
