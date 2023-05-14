@@ -170,6 +170,9 @@ if(sb=='Less than 3'):
         
         
     st.subheader('Download the above data')
+    import io
+    import click
+
     rad = st.radio('**Export Forecasted Production**', ['.csv', '.xlsx'])
     if st.button('Submit'):
         # Create a buffer to hold the file contents
@@ -183,12 +186,14 @@ if(sb=='Less than 3'):
 
         # Download the file using the buffer
         output_buffer.seek(0)
-        st.download_button(
-            label=f"Download {sb}_restaurant_data{rad}",
-            data=output_buffer,
-            file_name=f"{sb}_restaurant_data{rad}",
-            mime="application/octet-stream"
-        )
+        b64 = base64.b64encode(output_buffer.read()).decode()
+        href = f'<a href="data:application/octet-stream;base64,{b64}" download="{sb}_restaurant_data{rad}">Download file</a>'
+        st.markdown(href, unsafe_allow_html=True)
+
+        # Simulate a click on the download link using the click module
+        download_link = st.markdown(href, unsafe_allow_html=True)
+        click.echo(download_link)
+        click.launch(download_link)
 
 
 
