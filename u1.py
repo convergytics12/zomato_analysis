@@ -170,12 +170,32 @@ if(sb=='Less than 3'):
         
         
     st.subheader('Download the above data')
-    rad=st.radio('**Export Forecasted Production**',['.csv','.xlsx'])
-    if(st.button('Submit')):
-        if rad=='.csv':
-            dfless3.to_csv(str(sb)+'_restaurant_data.csv',index=False)
-        if rad=='.xlsx':
-            dfless3.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
+    rad = st.radio('**Export Forecasted Production**', ['.csv', '.xlsx'])
+    if st.button('Submit'):
+        # Create a buffer to hold the file contents
+        output_buffer = io.BytesIO()
+
+        # Write the data to the buffer
+        if rad == '.csv':
+            dfless3.to_csv(output_buffer, index=False)
+        elif rad == '.xlsx':
+            dfless3.to_excel(output_buffer, index=False)
+
+        # Download the file using the buffer
+        output_buffer.seek(0)
+        st.download_button(
+            label=f"Download {sb}_restaurant_data{rad}",
+            data=output_buffer,
+            file_name=f"{sb}_restaurant_data{rad}",
+            mime="application/octet-stream"
+        )
+
+
+
+
+
+
+
     
 
 
