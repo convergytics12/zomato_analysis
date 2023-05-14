@@ -72,13 +72,20 @@ if(sb=='Newly added restaurants'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    st.subheader('Download the above data')
-    rad=st.radio('**Export Forecasted Production**',['.csv','.xlsx'])
-    if(st.button('Submit')):
-        if rad=='.csv':
-            df45.to_csv(str(sb)+'_restaurant_data.csv',index=False)
-        if rad=='.xlsx':
-            df45.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
+    csv_button = st.button('Download as CSV')
+    if csv_button:
+        csv = df45.to_csv(index=False)
+        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+        
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
+        df45.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+        with open('data.xlsx', 'rb') as f:
+            excel_data = f.read()
+            st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
             
 if(sb=='No Ratings'):
     df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
@@ -97,13 +104,22 @@ if(sb=='No Ratings'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    st.subheader('Download the above data')
-    rad=st.radio('**Export Forecasted Production**',['.csv','.xlsx'])
-    if(st.button('Submit')):
-        if rad=='.csv':
-            df45.to_csv(str(sb)+'_restaurant_data.csv',index=False)
-        if rad=='.xlsx':
-            df45.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
+    csv_button = st.button('Download as CSV')
+    if csv_button:
+        csv = df45.to_csv(index=False)
+        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+        
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
+        df45.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+        with open('data.xlsx', 'rb') as f:
+            excel_data = f.read()
+            st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
+            
+    
     
 if(sb=='4-5 rating'):
     df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
@@ -133,6 +149,16 @@ if(sb=='4-5 rating'):
     if csv_button:
         csv = df45.to_csv(index=False)
         st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+        
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
+        df45.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+        with open('data.xlsx', 'rb') as f:
+            excel_data = f.read()
+            st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
             
 if(sb=='3-4 rating'):
     df_3_4=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
@@ -162,6 +188,16 @@ if(sb=='3-4 rating'):
     if csv_button:
         csv = df34.to_csv(index=False)
         st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+        
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
+        df34.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+        with open('data.xlsx', 'rb') as f:
+            excel_data = f.read()
+            st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
     
 if(sb=='Less than 3'):
     df_less3=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']]
