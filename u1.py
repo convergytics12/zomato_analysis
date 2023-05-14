@@ -169,11 +169,11 @@ if(sb=='Less than 3'):
         folium_static(m, width=500, height=300)
         
         
-    st.subheader('Download the above data')
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = dfless3.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+st.subheader('Download the above data')
+csv_button = st.button('Download as CSV')
+if csv_button:
+    csv = dfless3.to_csv(index=False)
+    st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
 
 
 
