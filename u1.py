@@ -174,7 +174,15 @@ if(sb=='Less than 3'):
     if csv_button:
         csv = dfless3.to_csv(index=False)
         st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
-
+        
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        writer = pd.ExcelWriter('data.xlsx', engine='xlsxwriter')
+        dfless3.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.save()
+        with open('data.xlsx', 'rb') as f:
+            excel_data = f.read()
+            st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 
 
