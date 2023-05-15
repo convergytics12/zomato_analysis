@@ -163,7 +163,7 @@ if(sb1=='Not in Zomato'):
 
 
 st.subheader('Filtering Restaurants not in zomato based on Rating')        
-sb = st.radio('**Select the rating**',('Select the Rating','All','Newly added restaurants','No Ratings','4-5 rating','3-4 rating','Less than 3'))
+sb = st.radio('**Select the rating**',('Select the Rating','Newly added restaurants','No Ratings','4-5 rating','3-4 rating','Less than 3'))
 if(sb=='Select The Rating'):
     pass
     
