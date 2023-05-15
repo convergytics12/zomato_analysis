@@ -12,7 +12,7 @@ dff=pd.read_excel('final_zom_swiggy.xlsx')
 locations1=dff[dff['Presence']=='zomato'][['name','latitude','longitude']]
 
 locations2 = dff[dff['Presence']=='Not in zomato']
-
+st.header('Zomato Analysis')
 sb2 = st.radio('**Select the location**',['Chandigarh'])
 if(sb2=='Chandigarh'):
     pass
