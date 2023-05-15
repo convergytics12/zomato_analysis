@@ -52,9 +52,44 @@ for i in range(len(la)):
 df['rating_cat'] = las
 
 st.subheader('Filtering Restaurants based on Rating')        
-sb = st.radio('**Select the rating**',('Select the Rating','Newly added restaurants','No Ratings','4-5 rating','3-4 rating','Less than 3'))
+sb = st.radio('**Select the rating**',('Select the Rating','All','Newly added restaurants','No Ratings','4-5 rating','3-4 rating','Less than 3'))
 if(sb=='Select The Rating'):
     pass
+if(sb=='All'):
+    df_4_5=locations2[['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
+    df_4_5['fssai']=df_4_5['fssai'].astype('str')
+    for i in range(len(df_4_5)):
+        df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
+    st.dataframe(df_4_5[['name','fssai']])
+    st.write('Number of Restaurants:',len(df_4_5))
+    df45=df_4_5[['name','fssai','rating','address']]
+    m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
+
+    # Add markers for each location in the dataframes
+    for i, row in df_4_5.iterrows():
+        folium.Marker(location=[row['latitude'], row['longitude']],
+                      tooltip=row['name'],
+                      icon=folium.Icon(color='orange')).add_to(m)
+    map_container = st.container()
+    with map_container:
+        folium_static(m, width=500, height=300)
+      
+    csv_button = st.button('Download as CSV')
+    if csv_button:
+        csv = df45.to_csv(index=False)
+        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+        
+    excel_button = st.button('Download as Excel')
+    if excel_button:
+        writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
+        df45.to_excel(writer, sheet_name='Sheet1', index=False)
+        writer.close()
+        with open('data.xlsx', 'rb') as f:
+            excel_data = f.read()
+            st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
+    
+    
 if(sb=='Newly added restaurants'):
     df_4_5=df[df['rating_cat']==sb][['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
