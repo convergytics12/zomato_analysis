@@ -144,12 +144,12 @@ if(sb1=='Not in Zomato'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    csv_button = st.button('Download as CSV')
+    csv_button = st.button('Download as CSV',key='k1')
     if csv_button:
         csv = df45.to_csv(index=False)
         st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
         
-    excel_button = st.button('Download as Excel')
+    excel_button = st.button('Download as Excel',key='k2')
     if excel_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
