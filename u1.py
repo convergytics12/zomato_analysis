@@ -243,8 +243,6 @@ if(sb=='Less than 3'):
             excel_data = f.read()
             st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
-    
-
 
 
     
