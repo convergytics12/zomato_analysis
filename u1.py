@@ -66,11 +66,6 @@ if(sb1=='Zomato'):
     map_container = st.container()
     with map_container:
         folium_static(m, width=500, height=300)
-      
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = df45.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
         
     excel_button = st.button('Download as Excel')
     if excel_button:
@@ -100,10 +95,7 @@ if(sb1=='Swiggy'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = df45.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel')
     if excel_button:
@@ -132,10 +124,7 @@ if(sb1=='Not in Zomato'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    csv_button = st.button('Download as CSV',key='k1')
-    if csv_button:
-        csv = df45.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel',key='k2')
     if excel_button:
@@ -174,10 +163,7 @@ if(sb=='Newly added restaurants'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = df45.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel')
     if excel_button:
@@ -208,10 +194,7 @@ if(sb=='No Ratings'):
     with map_container:
         folium_static(m, width=500, height=300)
       
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = df45.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel')
     if excel_button:
@@ -247,10 +230,7 @@ if(sb=='4-5 rating'):
     st.subheader('Download the above data')
     
             
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = df45.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel')
     if excel_button:
@@ -284,10 +264,7 @@ if(sb=='3-4 rating'):
     st.subheader('Download the above data')
     
             
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = df34.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel')
     if excel_button:
@@ -320,10 +297,7 @@ if(sb=='Less than 3'):
         
         
 
-    csv_button = st.button('Download as CSV')
-    if csv_button:
-        csv = dfless3.to_csv(index=False)
-        st.download_button(label='click here to download', data=csv, file_name='data.csv', mime='text/csv')
+
         
     excel_button = st.button('Download as Excel')
     if excel_button:
