@@ -13,7 +13,7 @@ locations1=dff[dff['Presence']=='zomato'][['name','latitude','longitude']]
 
 locations2 = dff[dff['Presence']=='Not in zomato']
 
-sb2 = st.radio('**Select the location**',('Chandigarh'))
+sb2 = st.radio('**Select the location**',['Chandigarh'])
 if(sb2=='Chandigarh'):
     pass
 
