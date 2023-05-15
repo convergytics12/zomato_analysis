@@ -53,7 +53,7 @@ if(sb1=='Zomato'):
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
         df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
-    st.dataframe(df_4_5[['name','fssai']])
+    st.dataframe(df_4_5[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -86,7 +86,7 @@ if(sb1=='Swiggy'):
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
         df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
-    st.dataframe(df_4_5[['name','fssai']])
+    st.dataframe(df_4_5[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -118,7 +118,7 @@ if(sb1=='Not in Zomato'):
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
         df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
-    st.dataframe(df_4_5[['name','fssai']])
+    st.dataframe(df_4_5[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -160,7 +160,7 @@ if(sb=='Newly added restaurants'):
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
         df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
-    st.dataframe(df_4_5[['name','fssai']])
+    st.dataframe(df_4_5[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -194,7 +194,7 @@ if(sb=='No Ratings'):
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
         df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
-    st.dataframe(df_4_5[['name','fssai']])
+    st.dataframe(df_4_5[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -230,6 +230,7 @@ if(sb=='4-5 rating'):
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
         df_4_5['fssai'][i]=df_4_5['fssai'][i].rstrip('.0')
+    st.dataframe(df_4_5[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_4_5))
     df45=df_4_5[['name','fssai','rating','address']]
     m = folium.Map( location=[30.7514,76.7731],zoom_start=12,)
@@ -266,7 +267,7 @@ if(sb=='3-4 rating'):
     df_3_4['fssai']=df_3_4['fssai'].astype('str')
     for i in range(len(df_3_4)):
         df_3_4['fssai'][i]=df_3_4['fssai'][i].rstrip('.0')
-    st.dataframe(df_3_4[['name','fssai']])
+    st.dataframe(df_3_4[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_3_4))
     df34=df_3_4[['name','fssai','rating','address']]
     
@@ -303,7 +304,7 @@ if(sb=='Less than 3'):
     df_less3['fssai']=df_less3['fssai'].astype('str')
     for i in range(len(df_less3)):
         df_less3['fssai'][i]=df_less3['fssai'][i].rstrip('.0')
-    st.dataframe(df_less3[['name','fssai']])
+    st.dataframe(df_less3[['name','fssai','latitude','longitude']])
     st.write('Number of Restaurants:',len(df_less3))
     dfless3=df_less3[['name','fssai','rating','address']]
     #dfless3=dfless3.reset_index(drop=True)
