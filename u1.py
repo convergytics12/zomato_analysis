@@ -44,7 +44,7 @@ df['rating_cat'] = las
 
 
 st.subheader('Total Restaurants:')
-sb1 = st.radio('**Select the option**',('Select the option','Zomato','Swiggy','Not in Zomato'))
+sb1 = st.radio('',('Select the option','Zomato','Swiggy','Not in Zomato'))
 if(sb1=='Select The option'):
     pass
 
@@ -151,7 +151,7 @@ if(sb1=='Not in Zomato'):
 
 
 st.subheader('Filtering Restaurants not in zomato based on Rating')        
-sb = st.radio('**Select the rating**',('Select the Rating','Newly added restaurants','No Ratings','4-5 rating','3-4 rating','Less than 3'))
+sb = st.radio('',('Select the Rating','Newly added restaurants','No Ratings','4-5 rating','3-4 rating','Less than 3'))
 if(sb=='Select The Rating'):
     pass
     
