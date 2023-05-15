@@ -256,12 +256,7 @@ if(sb=='4-5 rating'):
         folium_static(m, width=500, height=300)
       
     st.subheader('Download the above data')
-    rad=st.radio('**Export Forecasted Production**',['.csv','.xlsx'])
-    if(st.button('Submit')):
-        if rad=='.csv':
-            df45.to_csv(str(sb)+'_restaurant_data.csv',index=False)
-        if rad=='.xlsx':
-            df45.to_excel(str(sb)+'_restaurant_data.xlsx',index=False)
+    
             
     csv_button = st.button('Download as CSV')
     if csv_button:
