@@ -13,21 +13,9 @@ locations1=dff[dff['Presence']=='zomato'][['name','latitude','longitude']]
 
 locations2 = dff[dff['Presence']=='Not in zomato']
 
-# Create a folium map object
-m = folium.Map( location=[30.7514,76.7731],zoom_start=13)
-
-# Add markers for each location in the dataframes
-for i, row in locations1.iterrows():
-    folium.Marker(location=[row['latitude'], row['longitude']],
-                  tooltip=row['name'],
-                  icon=folium.Icon(color='red')).add_to(m)
-    
-map_container = st.container()
-with map_container:
-    # Add a title to the container
-    st.write('# Zomato vs Not in zomato')
-    # Render the map in a custom-sized container
-    folium_static(m, width=500, height=300)
+sb2 = st.radio('**Select the location**',('Chandigarh'))
+if(sb2=='Chandigarh'):
+    pass
 
 
 df=locations2
