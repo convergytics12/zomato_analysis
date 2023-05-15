@@ -125,7 +125,7 @@ if(sb1=='Swiggy'):
         with open('data.xlsx', 'rb') as f:
             excel_data = f.read()
             st.download_button(label='Click here to download', data=excel_data, file_name='data.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')            
-if(sb=='Not in Zomato'):
+if(sb1=='Not in Zomato'):
     df_4_5=locations2[['name','latitude', 'longitude','fssai','rating','address']].reset_index(drop=True)
     df_4_5['fssai']=df_4_5['fssai'].astype('str')
     for i in range(len(df_4_5)):
