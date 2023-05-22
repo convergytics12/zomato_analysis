@@ -68,8 +68,8 @@ if(sb1=='Zomato'):
     with map_container:
         folium_static(m, width=500, height=300)
         
-    excel_button = st.button('Download as Excel')
-    if excel_button:
+    exl_button = st.button('Download as Excel')
+    if exl_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
         writer.close()
@@ -98,8 +98,8 @@ if(sb1=='Swiggy'):
       
 
         
-    excel_button = st.button('Download as Excel')
-    if excel_button:
+    exl_button = st.button('Download as Excel')
+    if exl_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
         writer.close()
@@ -127,8 +127,8 @@ if(sb1=='Not in Zomato'):
       
 
         
-    excel_button = st.button('Download as Excel',key='k2')
-    if excel_button:
+    exl_button = st.button('Download as Excel',key='k2')
+    if exl_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
         writer.close()
