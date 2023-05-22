@@ -68,7 +68,7 @@ if(sb1=='Zomato'):
     with map_container:
         folium_static(m, width=500, height=300)
         
-    exl_button = st.button('Download as Excel')
+    exl_button = st.button('Download as Excel',key='k1')
     if exl_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -98,7 +98,7 @@ if(sb1=='Swiggy'):
       
 
         
-    exl_button = st.button('Download as Excel')
+    exl_button = st.button('Download as Excel',key='k2')
     if exl_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -127,7 +127,7 @@ if(sb1=='Not in Zomato'):
       
 
         
-    exl_button = st.button('Download as Excel',key='k2')
+    exl_button = st.button('Download as Excel',key='k3')
     if exl_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -166,7 +166,7 @@ if(sb=='Newly added restaurants'):
       
 
         
-    excel_button = st.button('Download as Excel')
+    excel_button = st.button('Download as Excel',key='k4')
     if excel_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -197,7 +197,7 @@ if(sb=='No Ratings'):
       
 
         
-    excel_button = st.button('Download as Excel')
+    excel_button = st.button('Download as Excel',key='k5')
     if excel_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -233,7 +233,7 @@ if(sb=='4-5 rating'):
             
 
         
-    excel_button = st.button('Download as Excel')
+    excel_button = st.button('Download as Excel',key='k6')
     if excel_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df45.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -267,7 +267,7 @@ if(sb=='3-4 rating'):
             
 
         
-    excel_button = st.button('Download as Excel')
+    excel_button = st.button('Download as Excel',key='k7')
     if excel_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         df34.to_excel(writer, sheet_name='Sheet1', index=False)
@@ -300,7 +300,7 @@ if(sb=='Less than 3'):
 
 
         
-    excel_button = st.button('Download as Excel')
+    excel_button = st.button('Download as Excel',key='k8')
     if excel_button:
         writer = pd.ExcelWriter('data.xlsx', engine='openpyxl')
         dfless3.to_excel(writer, sheet_name='Sheet1', index=False)
