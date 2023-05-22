@@ -63,7 +63,7 @@ if(sb1=='Zomato'):
     for i, row in df_4_5.iterrows():
         folium.Marker(location=[row['latitude'], row['longitude']],
                       tooltip=row['name'],
-                      icon=folium.Icon(color='orange')).add_to(m)
+                      icon=folium.Icon(color='red')).add_to(m)
     map_container = st.container()
     with map_container:
         folium_static(m, width=500, height=300)
