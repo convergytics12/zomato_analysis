@@ -11,7 +11,8 @@ swig = pd.read_excel('zomato and swiggy dataset.xlsx',sheet_name='Swiggy')
 dff=pd.read_excel('final_zom_swiggy.xlsx')
 locations1=dff[dff['Presence']=='zomato'][['name','latitude','longitude']]
 
-locations2 = dff[dff['Presence']=='Not in zomato']
+dfnz=pd.read_excel('Not_In_Zomato_Res_List.xlsx')
+locations2 = dfnz
 st.header('Zomato vs Swiggy Restaurant Base')
 sb2 = st.radio('**Select the location**',['Chandigarh'])
 if(sb2=='Chandigarh'):
